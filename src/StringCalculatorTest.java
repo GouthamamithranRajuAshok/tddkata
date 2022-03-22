@@ -23,8 +23,14 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void testAddForHandleUnknownNumberSize() {
+    public void testAddToHandleUnknownNumberSize() {
         int result = StringCalculator.add("1,2,5,6,2,7");
         assertEquals(23, result);
+    }
+
+    @Test
+    public void testAddToHandleNewLineBetweenNumbers() {
+        int result = StringCalculator.add("1\n2,3");
+        assertEquals(6, result);
     }
 }
