@@ -1,6 +1,6 @@
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class StringCalculatorTest {
 
@@ -38,5 +38,12 @@ public class StringCalculatorTest {
     public void testAddToHandleMultipleDelimiters() {
         int result = StringCalculator.add("//;\n1;2");
         assertEquals(3, result);
+    }
+
+    @Test
+    public void testAddToHandleNegativeNumberStrings() {
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> StringCalculator.add("1,-2"));
+        assertNotNull(exception);
+        assertEquals("negatives not allowed", exception.getMessage());
     }
 }
