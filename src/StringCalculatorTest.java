@@ -21,4 +21,10 @@ public class StringCalculatorTest {
         int result = StringCalculator.add("1,2");
         assertEquals(3, result);
     }
+
+    @Test
+    public void testAddForHandleUnknownNumberSize() {
+        int result = StringCalculator.add("1,2,5,6,2,7");
+        assertEquals(23, result);
+    }
 }
